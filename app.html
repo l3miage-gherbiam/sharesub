@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ShareSub Manager — Abonnements & Abonnés</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo">S</div><strong>ShareSub Manager</strong> <span class="chip">🎛️ Abonnements & 👥 Abonnés</span></div>
+    <div class="toolbar">
+      <label class="btn">📥 Importer JSON <input id="importFile" type="file" accept=".json" style="display:none"></label>
+      <button class="btn" id="exportBtn">📤 Exporter JSON</button>
+      <button class="btn success" id="addAccountBtn">➕ Ajouter compte</button>
+      <button class="btn primary" id="resetBtn" title="Réinitialise avec l'exemple">♻️ Reset (exemple)</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- KPIs -->
+    <section class="row">
+      <div class="kpi"><small>💶 Revenu / mois</small><div class="money" id="kpiRevenue">—</div></div>
+      <div class="kpi"><small>💳 Coût / mois</small><div class="money" id="kpiCost">—</div></div>
+      <div class="kpi"><small>📈 Marge / mois</small><div class="money" id="kpiMargin">—</div></div>
+      <div class="kpi"><small>🗂️ Comptes</small><div id="kpiAccounts">—</div></div>
+    </section>
+
+    <!-- Comptes ShareSub -->
+    <section class="card">
+      <h2>🗂️ Comptes ShareSub</h2>
+      <div id="accountsList"><!-- rendu JS --></div>
+    </section>
+
+    <!-- Mails -->
+    <section class="card">
+      <h2>📧 Mails</h2>
+      <div class="row" style="justify-content:flex-end;gap:6px;margin-bottom:8px">
+        <button class="btn success" id="addEmailBtn">➕ Ajouter mail</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Adresse</th><th>Pays</th><th>Activé ?</th><th>Dernier check</th><th class="right">Actions</th></tr>
+        </thead>
+        <tbody id="emailRows"><!-- rendu JS --></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- les modals CRUD comptes / abonnements / abonnés / mails sont gérés dans app.js -->
+  <script src="app.js"></script>
+</body>
+</html>
